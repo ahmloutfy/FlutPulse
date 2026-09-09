@@ -65,15 +65,9 @@
       transition: border-color 0.3s ease;
     }
     nav img { height: 60px; }
-    
-    .nav-links-container {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
     nav a {
       color: var(--text-light);
+      margin-left: 20px;
       text-decoration: none;
       font-weight: 500;
       position: relative;
@@ -105,6 +99,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-left: 20px;
     }
     .theme-toggle:hover {
       color: var(--accent-primary);
@@ -149,14 +144,10 @@
         font-size: 0.95rem;
       }
       .nav-links a::after { display: none; }
-      .nav-links-container {
-        width: 100%;
-        flex-direction: column;
-        gap: 8px;
-      }
       .theme-toggle {
+        margin-left: 0;
         width: 100%;
-        justify-content: center;
+        margin-top: 8px;
       }
     }
 
@@ -511,14 +502,12 @@
   <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
   </button>
-  <div class="nav-links-container">
-    <div class="nav-links">
-      <a href="{{ site.baseurl }}/">Home</a>
-      <a href="{{ '/#latest-articles' | relative_url }}">Articles</a>
-      <a href="{{ site.baseurl }}/categories/">Categories</a>
-      <a href="{{ site.baseurl }}/about/">About</a>
-      <a href="{{ site.baseurl }}/contact/">Contact</a>
-    </div>
+  <div class="nav-links">
+    <a href="{{ site.baseurl }}/">Home</a>
+    <a href="{{ '/#latest-articles' | relative_url }}">Articles</a>
+    <a href="{{ site.baseurl }}/categories/">Categories</a>
+    <a href="{{ site.baseurl }}/about/">About</a>
+    <a href="{{ site.baseurl }}/contact/">Contact</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle Dark/Light Mode">🌙</button>
   </div>
 </nav>
