@@ -99,7 +99,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 20px;
     }
     .theme-toggle:hover {
       color: var(--accent-primary);
@@ -145,7 +144,6 @@
       }
       .nav-links a::after { display: none; }
       .theme-toggle {
-        margin-left: 0;
         width: 100%;
         margin-top: 8px;
       }
@@ -508,8 +506,8 @@
     <a href="{{ site.baseurl }}/categories/">Categories</a>
     <a href="{{ site.baseurl }}/about/">About</a>
     <a href="{{ site.baseurl }}/contact/">Contact</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle Dark/Light Mode">🌙</button>
   </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle Dark/Light Mode">🌙</button>
 </nav>
 
 {% if page.title == "Home" %}
