@@ -3,8 +3,9 @@ layout: default
 title: "The Power of Nothing: Mastering White Space in Flutter UI Design"
 date: 2026-07-12
 excerpt: "White space is the structural framework that gives Flutter interfaces clarity, rhythm, and a premium feel. Learn how to engineer it deliberately."
-image: "/images/articles/mastering-white-space-flutter-ui.png"
+image: "/images/articles/ui-ux-mastery-component-design/mastering-white-space-flutter-ui.png"
 categories: [ui-ux]
+content_path: ui-ux-mastery-component-design
 tags: [design, layout]
 ---
 

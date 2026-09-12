@@ -3,8 +3,9 @@ layout: default
 title: "How to Profile Your Flutter App Without Guessing 🔬"
 date: 2026-08-28
 excerpt: "Performance problems in Flutter are rarely where you think they are. The DevTools suite gives you exact data on where time is being spent — here's how to use it effectively."
-image: "/images/articles/profile-flutter-app.png"
+image: "/images/articles/clean-architecture-state-management/profile-flutter-app.png"
 categories: [performance]
+content_path: clean-architecture-state-management
 tags: [devtools, profiling, optimization]
 ---
 

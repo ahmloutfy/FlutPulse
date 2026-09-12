@@ -3,8 +3,9 @@ layout: default
 title: "Why your API calls freeze your Flutter UI 🚫"
 date: 2026-06-10
 excerpt: "One of the most frustrating issues in Flutter is when your app suddenly feels stuck... Learn why your app freezes and how to fix it properly..."
-image: "/images/articles/why-api-freeze.png"
+image: "/images/articles/clean-architecture-state-management/why-api-freeze.png"
 categories: [performance]
+content_path: clean-architecture-state-management
 tags: [api, networking]
 ---
 

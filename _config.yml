@@ -15,3 +15,20 @@ jekyll-archives:
 
 web3forms_access_key: "75d4a52b-a44b-4725-98c8-8d44b5d8c641"
 future: false
+
+defaults:
+  - scope:
+      path: "_posts/clean-architecture-state-management"
+      type: posts
+    values:
+      content_path: clean-architecture-state-management
+  - scope:
+      path: "_posts/ui-ux-mastery-component-design"
+      type: posts
+    values:
+      content_path: ui-ux-mastery-component-design
+  - scope:
+      path: "_posts/developer-productivity-scalability"
+      type: posts
+    values:
+      content_path: developer-productivity-scalability

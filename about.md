@@ -17,7 +17,7 @@ no_ads: true
         </h1>
 
         <p style="font-size: 1.1rem; color: #a0aec0; max-width: 620px; margin: 0 auto; line-height: 1.7;">
-            Practical Flutter UI resources, reusable components, and development insights to help you build polished applications faster.
+            In-depth Flutter articles, practical fixes, and ready-to-use code snippets to help you build polished applications faster.
         </p>
     </div>
 
@@ -29,9 +29,9 @@ no_ads: true
         </h2>
 
         <p style="line-height:1.8; color:#e2e8f0; font-size:1.05rem;">
-            FlutPulse is a growing collection of reusable Flutter UI components,
-            design inspiration, and practical development articles. The goal is
-            simple: reduce repetitive UI work and make it easier to build clean,
+            FlutPulse is a growing collection of practical Flutter articles,
+            code snippets, and development insights. The goal is simple: help
+            you solve real problems faster and make it easier to build clean,
             consistent, and maintainable Flutter applications.
         </p>
     </section>
@@ -46,10 +46,10 @@ no_ads: true
         </blockquote>
 
         <p style="line-height:1.8; color:#e2e8f0; font-size:1.05rem;">
-            Every component is designed with reusability and customization in mind.
-            Rather than providing rigid templates, FlutPulse focuses on flexible
-            building blocks that integrate naturally with different state
-            management solutions and project architectures.
+            Every article and code snippet is written with reusability and
+            customization in mind. Rather than rigid templates, FlutPulse
+            focuses on flexible, practical solutions that integrate naturally
+            with different state management approaches and project architectures.
         </p>
     </section>
 
@@ -59,12 +59,28 @@ no_ads: true
         </h2>
 
         <ul style="line-height:2; color:#e2e8f0; padding-left:22px;">
-            <li>Reusable Flutter UI components</li>
+            <li>In-depth articles that solve real Flutter problems</li>
+            <li>Ready-to-copy code snippets alongside technical solutions</li>
             <li>Responsive layouts and design patterns</li>
             <li>Clean implementation examples</li>
             <li>Flutter tips, tutorials, and best practices</li>
-            <li>Resources to speed up everyday development</li>
         </ul>
+    </section>
+
+    <section style="margin-bottom:40px;">
+        <h2 style="color:#7ED957; font-size:1.8rem; margin-bottom:15px;">
+            🙋 Who's Behind This
+        </h2>
+
+        <p style="line-height:1.8; color:#e2e8f0; font-size:1.05rem;">
+            FlutPulse is run by a solo developer with a background in Flutter UI —
+            someone who enjoys building clean interfaces and writes to document
+            what's learned along the way. Some articles are drafted with the help
+            of AI tools, then reviewed and refined before publishing. If you spot
+            something that could be improved, reaching out via the
+            <a href="{{ '/contact/' | relative_url }}" style="color:#FFDE59; text-decoration:underline;">Contact page</a>
+            is always welcome.
+        </p>
     </section>
 
     <section style="margin-bottom:40px;">

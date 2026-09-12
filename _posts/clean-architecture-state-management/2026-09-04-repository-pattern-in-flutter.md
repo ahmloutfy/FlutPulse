@@ -3,8 +3,9 @@ layout: default
 title: "The Repository Pattern in Flutter: A Practical Guide 🗄️"
 date: 2026-09-04
 excerpt: "The Repository Pattern is one of the most valuable architectural patterns in Flutter development. It separates your data sources from your business logic — here's how to implement it properly."
-image: "/images/articles/repository-pattern-flutter.png"
+image: "/images/articles/clean-architecture-state-management/repository-pattern-flutter.png"
 categories: [architecture]
+content_path: clean-architecture-state-management
 tags: [repository-pattern, clean-architecture, api]
 ---
 

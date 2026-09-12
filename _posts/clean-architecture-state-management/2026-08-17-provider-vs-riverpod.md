@@ -3,8 +3,9 @@ layout: default
 title: "Provider vs Riverpod: Which One Actually Scales? 🏗️"
 date: 2026-08-17
 excerpt: "Both Provider and Riverpod solve state management in Flutter, but they have very different ceilings. Here's an honest comparison to help you choose the right one for your project."
-image: "/images/articles/provider-vs-riverpod.png"
+image: "/images/articles/clean-architecture-state-management/provider-vs-riverpod.png"
 categories: [architecture]
+content_path: clean-architecture-state-management
 tags: [state-management, provider, riverpod]
 ---
 

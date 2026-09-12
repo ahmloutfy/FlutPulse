@@ -88,29 +88,28 @@ permalink: /categories/
 <div class="custom-category-wrapper">
   <h1 class="custom-category-title">Articles by Category</h1>
 
-  {% for category in site.categories %}
-    {% assign category_name = category | first %}
+  {% for content_path in site.data.content_paths %}
+    {% assign category_name = content_path.title %}
+    {% assign path_posts = site.posts | where: "content_path", content_path.slug %}
     
-    <div class="custom-category-block" id="{{ category_name | slugify }}">
+    <div class="custom-category-block" id="{{ content_path.slug }}">
       
       <h2 class="custom-category-header">
         <span>📁 {{ category_name }}</span>
         <span class="custom-category-count">
-          {{ category | last | size }} {% if category | last | size == 1 %}Article{% else %}Articles{% endif %}
+          {{ path_posts | size }} {% if path_posts | size == 1 %}Article{% else %}Articles{% endif %}
         </span>
       </h2>
       
       <div class="custom-links-list">
-        {% for post in site.posts %}
-          {% if post.categories contains category_name %}
-            <a href="{{ post.url | relative_url }}" class="custom-article-item">
-              <span class="custom-item-title">📄 {{ post.title }}</span>
-              <span class="custom-item-date">
-                {{ post.date | date: "%b %d, %Y" }} 
-                <span style="color: #6cff6c !important; margin-left: 8px;">→</span>
-              </span>
-            </a>
-          {% endif %}
+        {% for post in path_posts %}
+          <a href="{{ post.url | relative_url }}" class="custom-article-item">
+            <span class="custom-item-title">📄 {{ post.title }}</span>
+            <span class="custom-item-date">
+              {{ post.date | date: "%b %d, %Y" }}
+              <span style="color: #6cff6c !important; margin-left: 8px;">→</span>
+            </span>
+          </a>
         {% endfor %}
       </div>
 

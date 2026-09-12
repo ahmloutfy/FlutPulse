@@ -60,7 +60,16 @@ no_ads: true
         </section>
 
         <section style="margin-bottom: 45px;">
-            <h2 style="color: #7ED957; font-size: 1.8rem; margin-bottom: 18px;">5. Data Security</h2>
+            <h2 style="color: #7ED957; font-size: 1.8rem; margin-bottom: 18px;">5. Content Creation &amp; AI Assistance</h2>
+            <p>
+                Some articles on FlutPulse are created with the assistance of AI tools, then reviewed and edited before publishing. 
+                We strive to ensure all technical content is accurate and practical, and we welcome corrections from our readers 
+                if you spot an error — please reach out via our Contact page.
+            </p>
+        </section>
+
+        <section style="margin-bottom: 45px;">
+            <h2 style="color: #7ED957; font-size: 1.8rem; margin-bottom: 18px;">6. Data Security</h2>
             <p>
                 We implement appropriate technical and organizational measures to protect your personal data. 
                 However, no method of transmission over the internet is completely secure.
@@ -68,7 +77,7 @@ no_ads: true
         </section>
 
         <section style="margin-bottom: 45px;">
-            <h2 style="color: #7ED957; font-size: 1.8rem; margin-bottom: 18px;">6. Your Rights</h2>
+            <h2 style="color: #7ED957; font-size: 1.8rem; margin-bottom: 18px;">7. Your Rights</h2>
             <p>You have the right to access, correct, or request deletion of your personal data. Feel free to contact us anytime.</p>
         </section>
 

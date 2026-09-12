@@ -3,8 +3,9 @@ layout: default
 title: "Building Responsive Layouts That Actually Work on All Screen Sizes 📱💻"
 date: 2026-09-01
 excerpt: "Building a Flutter UI that looks great on a phone is one thing. Making it work equally well on tablets and desktops requires a deliberate approach. Here's a practical system."
-image: "/images/articles/responsive-layouts-flutter.png"
+image: "/images/articles/ui-ux-mastery-component-design/responsive-layouts-flutter.png"
 categories: [ui-ux]
+content_path: ui-ux-mastery-component-design
 tags: [responsive, layout, design]
 ---
 

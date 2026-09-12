@@ -3,8 +3,9 @@ layout: default
 title: "Why const Constructors Matter More Than You Think ⚡"
 date: 2026-08-13
 excerpt: "Every Flutter developer has seen the const keyword but few truly understand the performance edge it provides. Here's why using const is one of the easiest wins in your codebase."
-image: "/images/articles/why-const-constructors-matter.png"
+image: "/images/articles/clean-architecture-state-management/why-const-constructors-matter.png"
 categories: [performance]
+content_path: clean-architecture-state-management
 tags: [optimization, widgets, best-practices]
 ---
 

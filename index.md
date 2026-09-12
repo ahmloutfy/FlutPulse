@@ -48,9 +48,9 @@ title: Home
 <div id="categories-overview" class="container" style="text-align: center;">
   <h2>Categories</h2>
   <div class="categories-container">
-    {% for category in site.categories %}
-    <a href="{{ site.baseurl }}/categories/#{{ category | first | slugify }}" class="category-btn" data-track-cta="category_open" data-track-location="home_categories">
-      {{ category | first }}
+    {% for content_path in site.data.content_paths %}
+    <a href="{{ site.baseurl }}/categories/#{{ content_path.slug }}" class="category-btn" data-track-cta="category_open" data-track-location="home_categories">
+      {{ content_path.title }}
     </a>
     {% endfor %}
   </div>

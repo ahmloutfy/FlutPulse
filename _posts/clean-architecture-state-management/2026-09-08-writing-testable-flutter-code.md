@@ -3,8 +3,9 @@ layout: default
 title: "Writing Testable Flutter Code From Day One 🧪"
 date: 2026-09-08
 excerpt: "Testability isn't something you add to Flutter code after the fact. It's the result of architectural decisions made from the beginning. Here's how to write code that's easy to test."
-image: "/images/articles/writing-testable-flutter-code.png"
+image: "/images/articles/clean-architecture-state-management/writing-testable-flutter-code.png"
 categories: [productivity]
+content_path: clean-architecture-state-management
 tags: [testing, architecture, best-practices]
 ---
 

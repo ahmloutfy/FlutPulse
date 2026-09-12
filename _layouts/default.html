@@ -25,6 +25,7 @@
       --code-text: #d6deeb;
       --code-inline-bg: #141c27;
       --card-bg: #121821;
+      --nav-height: 110px;
     }
 
     /* Light Mode Variables */
@@ -138,6 +139,7 @@
       body {
         padding-top: 60px;
       }
+      :root { --nav-height: 72px; }
       nav { padding: 12px 16px; position: fixed; flex-wrap: wrap; }
       nav img { height: 54px; }
       .nav-toggle { display: flex; }
@@ -302,14 +304,19 @@
       border: 1px solid var(--border-code);
       border-radius: 10px;
       margin: 24px 0;
-      overflow: hidden;
+      overflow: visible;
       box-shadow: inset 3px 0 0 var(--accent-primary), 0 8px 24px rgba(0, 0, 0, 0.18);
     }
 
-    .article-main-content div.highlighter-rouge::before {
-      content: attr(data-language);
-      display: block;
-      padding: 8px 20px;
+    .code-block-toolbar {
+      position: sticky;
+      top: calc(var(--nav-height) + 10px);
+      z-index: 2;
+      min-height: 42px;
+      padding: 7px 12px 7px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       color: #8b98a9;
       background: #111a25;
       border-bottom: 1px solid var(--border-code);
@@ -319,6 +326,72 @@
       letter-spacing: 0.08em;
       line-height: 1.4;
       text-transform: uppercase;
+      box-sizing: border-box;
+    }
+
+    .code-block-language:empty::before {
+      content: 'CODE';
+    }
+
+    .code-copy-btn {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 30px;
+      border: 1px solid var(--border-code);
+      border-radius: 5px;
+      background: var(--code-inline-bg);
+      color: var(--text-light);
+      cursor: pointer;
+      transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .code-copy-btn:hover,
+    .code-copy-btn:focus-visible {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      outline: none;
+    }
+
+    .code-copy-btn:active { transform: scale(0.9); }
+
+    .code-copy-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .code-copy-btn.copied {
+      color: #071006;
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      animation: code-copy-success 480ms ease-out;
+    }
+
+    .code-copy-btn.copy-failed {
+      color: #fff;
+      background: #c63b4d;
+      border-color: #c63b4d;
+      animation: code-copy-shake 360ms ease-in-out;
+    }
+
+    @keyframes code-copy-success {
+      0% { transform: scale(0.82); }
+      55% { transform: scale(1.14); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes code-copy-shake {
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-2px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .code-copy-btn { transition: none; }
+      .code-copy-btn.copied,
+      .code-copy-btn.copy-failed { animation: none; }
     }
 
     .article-main-content div.highlighter-rouge > .highlight {
@@ -561,13 +634,13 @@
     </div>
 
     {% if page.date %}
-    {% assign first_category = page.categories | first %}
+    {% assign current_content_path = page.content_path %}
     <section style="margin: 35px 0 0 0; border-top: 1px solid var(--border-light); padding-top: 24px;">
       <h2 style="margin: 0 0 15px 0; font-size: 24px;">Related Articles</h2>
       <div style="display: grid; gap: 12px;">
         {% assign related_count = 0 %}
         {% for post in site.posts %}
-          {% if post.url != page.url and first_category and post.categories contains first_category and related_count < 3 %}
+          {% if post.url != page.url and current_content_path and post.content_path == current_content_path and related_count < 3 %}
             <a href="{{ post.url | relative_url }}" style="display: block; padding: 14px 16px; border-radius: 8px; background: var(--card-bg); border: 1px solid var(--border-light); color: var(--text-primary); text-decoration: none; transition: 0.3s;">
               {{ post.title }}
             </a>
@@ -623,6 +696,7 @@
   </p>
 </footer>
 <script src="/assets/js/analytics.js"></script>
+<script src="{{ '/assets/js/code-copy.js' | relative_url }}" defer></script>
 
 <script>
   // Theme Toggle Script
@@ -652,21 +726,6 @@
 
   // Load theme on page load
   loadTheme();
-</script>
-
-<script>
-  // Add a language label to every Rouge block without changing article Markdown.
-  document.querySelectorAll('.article-main-content div.highlighter-rouge').forEach(function (block) {
-    var languageClass = Array.from(block.classList).find(function (className) {
-      return className.indexOf('language-') === 0;
-    });
-
-    if (languageClass) {
-      block.dataset.language = languageClass
-        .replace('language-', '')
-        .replace(/[-_]/g, ' ');
-    }
-  });
 </script>
 
 {% if page.date %}

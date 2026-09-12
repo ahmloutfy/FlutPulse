@@ -3,8 +3,9 @@ layout: default
 title: "Flutter Animations: The Difference Between Implicit and Explicit 🎬"
 date: 2026-08-21
 excerpt: "Flutter offers two distinct animation systems. Knowing when to use each one is the difference between clean, maintainable animation code and an over-engineered mess."
-image: "/images/articles/flutter-animations-implicit-explicit.png"
+image: "/images/articles/ui-ux-mastery-component-design/flutter-animations-implicit-explicit.png"
 categories: [ui-ux]
+content_path: ui-ux-mastery-component-design
 tags: [animations, widgets, design]
 ---
 

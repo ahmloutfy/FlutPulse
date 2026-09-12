@@ -3,8 +3,9 @@ layout: default
 title: "Flutter CLI Tricks That Save Hours ⏱️"
 date: 2026-08-24
 excerpt: "Most Flutter developers use only a handful of CLI commands. But the Flutter CLI has powerful flags and shortcuts that can dramatically cut build times, debugging time, and repetitive work."
-image: "/images/articles/flutter-cli-tricks.png"
+image: "/images/articles/developer-productivity-scalability/flutter-cli-tricks.png"
 categories: [productivity]
+content_path: developer-productivity-scalability
 tags: [cli, tooling, workflow]
 ---
 
