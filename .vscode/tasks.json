@@ -24,7 +24,7 @@
         "command": "C:\\Ruby40-x64\\bin\\bundle.bat exec jekyll serve --livereload --host 127.0.0.1 --port 4000"
       },
       "linux": {
-        "command": "bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4000"
+        "command": "bundle exec jekyll serve --livereload --host 0.0.0.0 --port 4000"
       },
       "osx": {
         "command": "bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4000"

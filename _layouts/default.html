@@ -667,26 +667,30 @@
     {% endif %}
 
     <div class="article-main-content">
-      {% assign paragraphs = content | split: "</p>" %}
-      {% for para in paragraphs %}
-        {{ para }}</p>
-        
-        <!-- In-article Ad - Hidden if no_ads: true -->
-        {% if forloop.index == 2 and page.no_ads != true %}
-          <div style="text-align: center; margin: 35px auto; max-width: 100%;">
-            <span style="color: #444; font-size: 11px; display: block; margin-bottom: 6px;">Advertisement</span>
-            <div style="width: 100%; max-width: 650px; min-height: 120px; margin: 0 auto; position: relative; background: var(--card-bg); border-radius: 8px; border: 1px dashed #263345; box-sizing: border-box; overflow: hidden;">
-              <ins class="adsbygoogle"
-                   style="display: block; width: 100%; min-height: 120px;"
-                   data-ad-layout="in-article"
-                   data-ad-format="fluid"
-                   data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                   data-ad-slot="MID_AD_SLOT"></ins>
-              <script>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+      {% if page.no_ads == true %}
+        {{ content }}
+      {% else %}
+        {% assign paragraphs = content | split: "</p>" %}
+        {% for para in paragraphs %}
+          {{ para }}</p>
+
+          <!-- In-article Ad - Hidden if no_ads: true -->
+          {% if forloop.index == 2 %}
+            <div style="text-align: center; margin: 35px auto; max-width: 100%;">
+              <span style="color: #444; font-size: 11px; display: block; margin-bottom: 6px;">Advertisement</span>
+              <div style="width: 100%; max-width: 650px; min-height: 120px; margin: 0 auto; position: relative; background: var(--card-bg); border-radius: 8px; border: 1px dashed #263345; box-sizing: border-box; overflow: hidden;">
+                <ins class="adsbygoogle"
+                     style="display: block; width: 100%; min-height: 120px;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="MID_AD_SLOT"></ins>
+                <script>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+              </div>
             </div>
-          </div>
-        {% endif %}
-      {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     </div>
 
     {% if page.date %}

@@ -2,13 +2,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "type": "node-terminal",
             "request": "launch",
-            "name": "Run FlutPulse in Chrome",
-            "preLaunchTask": "Serve FlutPulse",
-            "url": "http://127.0.0.1:4000",
-            "webRoot": "${workspaceFolder}",
-            "runtimeExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+            "name": "Serve FlutPulse in Codespaces",
+            "preLaunchTask": "Install Jekyll dependencies",
+            "command": "bundle exec jekyll serve --livereload --host 0.0.0.0 --port 4000",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }

@@ -2,13 +2,14 @@
 layout: default
 title: Search
 permalink: /search/
+no_ads: true
 ---
 
 <section class="container" style="max-width: 900px; margin: 40px auto 0;">
   <h1 style="text-align: center; margin-bottom: 24px;">Search Articles</h1>
 
   <form class="search-form" action="{{ '/search/' | relative_url }}" method="get" role="search" style="max-width: 600px; margin: 0 auto 32px; position: relative;">
-    <input type="search" name="q" id="searchInput" placeholder="Search by title, tags, or keyword..." value="{{ page.url | split: 'q=' | last | url_decode | default: '' }}" aria-label="Search" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 999px; color: var(--text-primary); padding: 14px 48px 14px 18px; font-size: 1rem; outline: none; box-sizing: border-box;" />
+    <input type="search" name="q" id="searchInput" placeholder="Search by title, tags, or keyword..." aria-label="Search" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 999px; color: var(--text-primary); padding: 14px 48px 14px 18px; font-size: 1rem; outline: none; box-sizing: border-box;" />
     <button type="submit" aria-label="Search" style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); border: none; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 1.1rem;">🔍</button>
   </form>
 
@@ -18,6 +19,7 @@ permalink: /search/
 <script>
   const searchParams = new URLSearchParams(window.location.search);
   const query = (searchParams.get('q') || '').trim().toLowerCase();
+  document.getElementById('searchInput').value = searchParams.get('q') || '';
   const resultsContainer = document.getElementById('search-results');
 
   const allPosts = [
