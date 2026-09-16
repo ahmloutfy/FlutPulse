@@ -4,7 +4,15 @@
     {
       "label": "Install Jekyll dependencies",
       "type": "shell",
-      "command": "C:\\Ruby40-x64\\bin\\bundle.bat install",
+      "windows": {
+        "command": "C:\\Ruby40-x64\\bin\\bundle.bat install"
+      },
+      "linux": {
+        "command": "bundle install"
+      },
+      "osx": {
+        "command": "bundle install"
+      },
       "problemMatcher": []
     },
     {
@@ -12,7 +20,15 @@
       "type": "shell",
       "dependsOn": "Install Jekyll dependencies",
       "dependsOrder": "sequence",
-      "command": "C:\\Ruby40-x64\\bin\\bundle.bat exec jekyll serve --livereload --host 127.0.0.1 --port 4000",
+      "windows": {
+        "command": "C:\\Ruby40-x64\\bin\\bundle.bat exec jekyll serve --livereload --host 127.0.0.1 --port 4000"
+      },
+      "linux": {
+        "command": "bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4000"
+      },
+      "osx": {
+        "command": "bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4000"
+      },
       "isBackground": true,
       "problemMatcher": {
         "pattern": [

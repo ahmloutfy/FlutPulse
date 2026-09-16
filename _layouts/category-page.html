@@ -10,7 +10,7 @@ layout: default
     <h2 class="category-header">
       <span>Articles</span>
       <span class="category-count">
-        {{ page.posts | size }} {% if page.posts | size == 1 %}Article{% else %}Articles{% endif %}
+        {{ page.posts.size }} {% if page.posts.size == 1 %}Article{% else %}Articles{% endif %}
       </span>
     </h2>
     

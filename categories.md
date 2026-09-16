@@ -97,7 +97,7 @@ permalink: /categories/
       <h2 class="custom-category-header">
         <span>📁 {{ category_name }}</span>
         <span class="custom-category-count">
-          {{ path_posts | size }} {% if path_posts | size == 1 %}Article{% else %}Articles{% endif %}
+          {{ path_posts.size }} {% if path_posts.size == 1 %}Article{% else %}Articles{% endif %}
         </span>
       </h2>
       
