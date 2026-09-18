@@ -15,6 +15,9 @@ jekyll-archives:
 
 web3forms_access_key: "75d4a52b-a44b-4725-98c8-8d44b5d8c641"
 future: false
+exclude:
+  - ARTICLES.md
+  - scripts
 
 defaults:
   - scope:

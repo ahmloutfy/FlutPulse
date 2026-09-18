@@ -2,6 +2,20 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Update article index",
+      "type": "shell",
+      "windows": {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\update-article-index.ps1"
+      },
+      "linux": {
+        "command": "pwsh -NoProfile -File ./scripts/update-article-index.ps1"
+      },
+      "osx": {
+        "command": "pwsh -NoProfile -File ./scripts/update-article-index.ps1"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Install Jekyll dependencies",
       "type": "shell",
       "windows": {
