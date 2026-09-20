@@ -2,11 +2,15 @@ name: Deploy Flutter Web to GitHub Pages
 
 on:
   push:
-    branches: [ FlutPulse ] # أو master حسب اسم الفرع الرئيسي لديك
+    branches: [FlutPulse]
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -14,8 +18,8 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.47.2' # أو إصدار الفلاتر المناسب لمشروعك
-          channel: 'stable'
+          flutter-version: '3.47.2'
+          channel: stable
 
       - name: Enable Flutter Web
         run: flutter config --enable-web
@@ -27,8 +31,8 @@ jobs:
         run: flutter build web --release
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
-          publish_branch: FlutPulse
+          publish_branch: gh-pages
