@@ -3,7 +3,6 @@ layout: default
 title: Home
 ---
 
-
 <section class="hero">
   <div class="hero-text">
     <h1>Solve. Learn. <span>Build.</span></h1>
