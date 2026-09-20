@@ -31,9 +31,12 @@ $articles = Get-ChildItem -Path $postsRoot -Recurse -Filter '*.md' |
       Status = if ($date -gt $today) { 'Upcoming' } else { 'Published' }
     }
   } |
-  Sort-Object Date, Title
+  Sort-Object Date, Title -Descending
 
-$nextArticle = $articles | Where-Object { $_.Date -gt $today } | Select-Object -First 1
+$nextArticle = $articles |
+  Where-Object { $_.Date -gt $today } |
+  Sort-Object Date, Title |
+  Select-Object -First 1
 $generatedAt = (Get-Date).ToString('yyyy-MM-dd HH:mm')
 
 $lines = @(
