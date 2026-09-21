@@ -18,7 +18,7 @@ title: Home
 <div style="text-align: center; margin: 30px auto; max-width: 100%; padding: 0 15px; box-sizing: border-box;">
   <div style="background: #121821; padding: 15px; border-radius: 8px; border: 1px dashed #263345; display: inline-block; width: 100%; max-width: 760px; box-sizing: border-box; position: relative; overflow: hidden;">
     <span style="color: #444; font-size: 11px; display: block; margin-bottom: 8px;">Advertisement</span>
-    
+
     <div style="width: 100%; max-width: 728px; min-height: 90px; margin: 0 auto; position: relative; background: #080c11; border-radius: 4px; box-sizing: border-box;">
       <ins class="adsbygoogle"
            style="display: block; width: 100%; min-height: 90px;"
@@ -31,8 +31,9 @@ title: Home
 
 <div id="latest-articles" class="container" style="text-align: center;">
   <h2>Latest Articles</h2>
+  {% assign latest_posts = site.posts | slice: 0, 6 %}
   <div class="grid">
-    {% for post in site.posts %}
+    {% for post in latest_posts %}
     <div class="card">
       {% if post.image %}
         <img src="{{ post.image | relative_url }}" class="card-img" alt="{{ post.title }}" loading="lazy" decoding="async">
@@ -43,6 +44,11 @@ title: Home
     </div>
     {% endfor %}
   </div>
+  {% if site.posts.size > 6 %}
+  <div style="margin-top: 25px;">
+    <a href="{{ site.baseurl }}/categories/" class="btn btn-secondary" data-track-cta="view_all_articles" data-track-location="home_latest_articles">View All Articles ({{ site.posts.size }})</a>
+  </div>
+  {% endif %}
 </div>
 
 <div id="categories-overview" class="container" style="text-align: center;">
@@ -73,7 +79,7 @@ title: Home
 <div style="text-align: center; margin: 40px auto 20px auto; max-width: 100%; padding: 0 15px; box-sizing: border-box;">
   <div style="background: #121821; padding: 15px; border-radius: 8px; border: 1px dashed #263345; display: inline-block; width: 100%; max-width: 760px; box-sizing: border-box; position: relative; overflow: hidden;">
     <span style="color: #444; font-size: 11px; display: block; margin-bottom: 8px;">Advertisement</span>
-    
+
     <div style="width: 100%; max-width: 728px; min-height: 90px; margin: 0 auto; position: relative; background: #080c11; border-radius: 4px; box-sizing: border-box;">
       <ins class="adsbygoogle"
            style="display: block; width: 100%; min-height: 90px;"
