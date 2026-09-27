@@ -12,7 +12,9 @@ $articles = Get-ChildItem -Path $postsRoot -Recurse -Filter '*.md' |
       return
     }
 
-    $content = Get-Content -Path $_.FullName -Raw
+    # Windows PowerShell 5.1 otherwise reads UTF-8 files without a BOM as the
+    # active ANSI code page, corrupting emoji and other non-ASCII title text.
+    $content = [System.IO.File]::ReadAllText($_.FullName, [System.Text.Encoding]::UTF8)
     $titleMatch = [regex]::Match($content, '(?m)^title:\s*(?:"(?<quoted>[^"]+)"|(?<plain>.+))$')
     $title = if ($titleMatch.Groups['quoted'].Success) {
       $titleMatch.Groups['quoted'].Value
