@@ -15,6 +15,7 @@ title: Home
   </div>
 </section>
 
+{% comment %} Ad block hidden while preserving its original code.
 <div style="text-align: center; margin: 30px auto; max-width: 100%; padding: 0 15px; box-sizing: border-box;">
   <div style="background: #121821; padding: 15px; border-radius: 8px; border: 1px dashed #263345; display: inline-block; width: 100%; max-width: 760px; box-sizing: border-box; position: relative; overflow: hidden;">
     <span style="color: #444; font-size: 11px; display: block; margin-bottom: 8px;">Advertisement</span>
@@ -28,6 +29,7 @@ title: Home
     </div>
   </div>
 </div>
+{% endcomment %}
 
 <div id="latest-articles" class="container" style="text-align: center;">
   <h2>Latest Articles</h2>
@@ -76,6 +78,7 @@ title: Home
   </div>
 </div>
 
+{% comment %} Ad block hidden while preserving its original code.
 <div style="text-align: center; margin: 40px auto 20px auto; max-width: 100%; padding: 0 15px; box-sizing: border-box;">
   <div style="background: #121821; padding: 15px; border-radius: 8px; border: 1px dashed #263345; display: inline-block; width: 100%; max-width: 760px; box-sizing: border-box; position: relative; overflow: hidden;">
     <span style="color: #444; font-size: 11px; display: block; margin-bottom: 8px;">Advertisement</span>
@@ -89,3 +92,4 @@ title: Home
     </div>
   </div>
 </div>
+{% endcomment %}
