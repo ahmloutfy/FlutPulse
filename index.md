@@ -64,9 +64,6 @@ title: Home
   </div>
 </div>
 
-
-
-
 <div class="container" style="text-align: center; margin-top: 40px;">
   <h2>About FlutPulse</h2>
   <p style="max-width: 600px; margin: 0 auto; color: #aaa; line-height: 1.6;">
