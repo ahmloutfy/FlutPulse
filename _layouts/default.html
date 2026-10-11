@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -269,7 +269,8 @@
       .nav-links a {
         margin-left: 0;
         padding: 10px 6px;
-        border-top: 1px solid var(--border-light);\n        font-size: 0.95rem;
+        border-top: 1px solid var(--border-light);
+        font-size: 0.95rem;
         width: 100%;
       }
       .nav-links a::after {
@@ -369,7 +370,8 @@
       min-width: 0;
       box-sizing: border-box;
     }
-    .card:hover { transform: translateY(-6px); }\n    .card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .card:hover { transform: translateY(-6px); }
+    .card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
     
     .card h3 {
       margin: 15px 15px 5px 15px;
@@ -406,7 +408,7 @@
     .btn-secondary { border: 1px solid var(--accent-primary); color: var(--accent-primary); }
 
     /* Category Buttons */
-    .categories-container, [class*=\"categories\"] {
+    .categories-container, [class*="categories"] {
       display: flex !important;
       justify-content: center;
       gap: 10px;
@@ -417,7 +419,7 @@
       box-sizing: border-box;
     }
 
-    .categories-container a, [class*=\"categories\"] a {
+    .categories-container a, [class*="categories"] a {
       display: inline-block !important;
       background: var(--card-bg) !important;
       color: var(--text-primary) !important;
@@ -435,7 +437,7 @@
       font-size: 0.92rem;
     }
 
-    .categories-container a:hover, [class*=\"categories\"] a:hover {
+    .categories-container a:hover, [class*="categories"] a:hover {
       border-color: var(--accent-primary) !important;
       color: var(--accent-primary) !important;
       transform: translateY(-3px) !important;
@@ -443,7 +445,8 @@
     }
 
     @media (max-width: 768px) {
-      .hero {\n        padding: 24px 14px;
+      .hero {
+        padding: 24px 14px;
         gap: 20px;
         text-align: center;
         flex-direction: column-reverse;
@@ -471,11 +474,11 @@
         grid-template-columns: minmax(0, 1fr);
         gap: 14px;
       }
-      .categories-container, [class*=\"categories\"] {
+      .categories-container, [class*="categories"] {
         flex-direction: column;
         align-items: stretch;
       }
-      .categories-container a, [class*=\"categories\"] a {
+      .categories-container a, [class*="categories"] a {
         width: 100%;
       }
     }
@@ -898,10 +901,26 @@
     }
     footer a { color: var(--accent-primary); text-decoration: none; }
     .footer-socials { display: flex; justify-content: center; gap: 14px; margin: 0 0 20px; }
-    .footer-social { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--border-color); border-radius: 50%; background: var(--bg-secondary); color: var(--accent-primary); transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease; }
+    .footer-social { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--border-color); border-radius: 50%; background: var(--bg-secondary); }
     .footer-social svg { display: block; width: 23px; height: 23px; fill: currentColor; }
     .footer-social:hover, .footer-social:focus-visible { transform: translateY(-3px); background: var(--accent-primary); color: #fff; }
     .footer-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 0; }
+
+    /* ============================================== */
+    /* HIDE ADVERTISEMENT BLOCKS WITH CSS */
+    /* ============================================== */
+    /* Hide all advertisement containers without removing code */
+    div[style*="Advertisement"] {
+      display: none !important;
+    }
+    
+    .adsbygoogle {
+      display: none !important;
+    }
+    
+    ins.adsbygoogle {
+      display: none !important;
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -998,149 +1017,57 @@
   
   {{ content }}
 
-{% else %}
-  
+{% elsif page.no_ads == true %}
+
   <div class="article-layout-wrapper">
-    
-    {% if page.image %}
-    <div class="article-image-box">
-      <img class="article-central-img" src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="lazy" decoding="async">
-    </div>
-    {% endif %}
+    {{ content }}
+  </div>
 
+{% else %}
+
+  <div class="article-layout-wrapper">
     <div class="article-main-content">
-      {% if page.no_ads == true %}
-        {{ content }}
-      {% else %}
-        {% assign paragraphs = content | split: "</p>" %}
-        {% for para in paragraphs %}
-          {{ para }}</p>
-
-          <!-- In-article Ad - Hidden if no_ads: true -->
-          {% if forloop.index == 2 %}
-            <div style="text-align: center; margin: 30px auto; max-width: 100%; box-sizing: border-box; overflow: hidden;">
-              <span style="color: #444; font-size: 11px; display: block; margin-bottom: 6px;">Advertisement</span>
-              <div style="width: 100%; max-width: 650px; min-height: 120px; margin: 0 auto; position: relative; background: var(--card-bg); border-radius: 8px; border: 1px dashed #263345; box-sizing: border-box; overflow: hidden;">
-                <ins class="adsbygoogle"
-                     style="display: block; width: 100%; min-height: 120px;"
-                     data-ad-layout="in-article"
-                     data-ad-format="fluid"
-                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                     data-ad-slot="MID_AD_SLOT"></ins>
-                <script>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
+      {{ content }}
     </div>
-
-    {% if page.date %}
-    {% assign current_content_path = page.content_path %}
-    <section style="margin: 30px 0 0 0; border-top: 1px solid var(--border-light); padding-top: 20px; max-width: 100%; box-sizing: border-box; overflow: hidden;">
-      <h2 style="margin: 0 0 15px 0; font-size: 22px;">Related Articles</h2>
-      <div style="display: grid; gap: 12px; width: 100%; box-sizing: border-box;">
-        {% assign related_count = 0 %}
-        {% for post in site.posts %}
-          {% if post.url != page.url and current_content_path and post.content_path == current_content_path and related_count < 3 %}
-            <a href="{{ post.url | relative_url }}" style="display: block; padding: 14px 16px; border-radius: 8px; background: var(--card-bg); border: 1px solid var(--border-light); color: var(--text-primary); text-decoration: none; transition: 0.3s; word-break: break-word; box-sizing: border-box;">
-              {{ post.title }}
-            </a>
-            {% assign related_count = related_count | plus: 1 %}
-          {% endif %}
-        {% endfor %}
-
-        {% if related_count == 0 %}
-          {% for post in site.posts %}
-            {% if post.url != page.url and related_count < 3 %}
-              <a href="{{ post.url | relative_url }}" style="display: block; padding: 14px 16px; border-radius: 8px; background: var(--card-bg); border: 1px solid var(--border-light); color: var(--text-primary); text-decoration: none; transition: 0.3s; word-break: break-word; box-sizing: border-box;">
-                {{ post.title }}
-              </a>
-              {% assign related_count = related_count | plus: 1 %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      </div>
-    </section>
-
-    <section style="margin: 25px 0 0 0; padding: 20px; border-radius: 10px; background: var(--card-bg); border: 1px solid var(--border-light); text-align: center; max-width: 100%; box-sizing: border-box; overflow: hidden;">
-      <h2 style="margin: 0 0 10px 0; font-size: 22px; word-break: break-word;">Want more practical Flutter fixes?</h2>
-      <p style="margin: 0 0 16px 0; color: var(--text-muted); word-break: break-word;">Subscribe by email and get concise, real-world Flutter tips.</p>
-      <a href="mailto:flutpulse@proton.me?subject=FlutPulse%20Newsletter%20Subscription" class="btn btn-primary" data-track-cta="newsletter_signup" data-track-location="article_footer">Get Weekly Tips</a>
-    </section>
-    {% endif %}
-
   </div>
 
-{% endif %}
-
-<!-- Bottom Ad - Hidden on Home + pages with no_ads: true -->
-{% if page.layout == "default" and page.title != "Home" and page.no_ads != true %}
-<div style="text-align: center; margin: 40px auto; max-width: 100%; padding: 0 14px; box-sizing: border-box; overflow: hidden;">
-  <span style="color: #444; font-size: 12px; display: block; margin-bottom: 8px;">Advertisement</span>
-  <div style="width: 100%; max-width: 300px; min-height: 250px; margin: 0 auto; position: relative; background: var(--card-bg); border-radius: 8px; border: 1px dashed #263345; box-sizing: border-box; overflow: hidden;">
-    <ins class="adsbygoogle"
-         style="display: block; width: 100%; min-height: 250px;"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="END_AD_SLOT"></ins>
-    <script>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-</div>
 {% endif %}
 
 <footer>
-  <p>© {{ 'now' | date: "%Y" }} FlutPulse. All rights reserved.</p>
-  <div class="footer-socials" aria-label="Social media">
-    <a class="footer-social" href="https://www.facebook.com/flutpulse" aria-label="Facebook" title="Facebook" data-track-cta="facebook_open" data-track-location="footer">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4z"/></svg>
+  <div class="footer-socials">
+    <a href="https://twitter.com" class="footer-social" aria-label="Twitter">
+      <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/></svg>
     </a>
-    <a class="footer-social" href="https://www.linkedin.com/company/flutpulse/" aria-label="LinkedIn" title="LinkedIn" data-track-cta="linkedin_open" data-track-location="footer">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 3H3.6C3.3 3 3 3.3 3 3.6v16.8c0 .3.3.6.6.6h16.8c.3 0 .6-.3.6-.6V3.6c0-.3-.3-.6-.6-.6zM8.3 18H5.4V9h2.9v9zM6.9 7.8a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM18 18h-2.9v-4.4c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V18H9V9h2.8v1.2h.1c.4-.7 1.3-1.5 2.7-1.5 2.9 0 3.4 1.9 3.4 4.3V18z"/></svg>
+    <a href="https://github.com" class="footer-social" aria-label="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.603-3.369-1.343-3.369-1.343-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.891 1.529 2.341 1.544 2.914 1.186.09-.923.349-1.544.636-1.898-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.447-1.273.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.374.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.137 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
     </a>
   </div>
-  <p class="footer-links">
-    <a href="{{ site.baseurl }}/contact/" data-track-cta="contact_page" data-track-location="footer">Contact</a>
-    <a href="{{ site.baseurl }}/privacy_policy/" data-track-cta="privacy_policy" data-track-location="footer">Privacy Policy</a>
-    <a href="{{ site.baseurl }}/terms_and_conditions/" data-track-cta="terms_and_conditions" data-track-location="footer">Terms &amp; Conditions</a>
-  </p>
+  <div class="footer-links">
+    <a href="{{ site.baseurl }}/privacy_policy/">Privacy Policy</a>
+    <a href="{{ site.baseurl }}/terms_and_conditions/">Terms & Conditions</a>
+  </div>
+  <p>&copy; 2024 FlutPulse. All rights reserved.</p>
 </footer>
-<script src="/assets/js/analytics.js"></script>
-<script src="{{ '/assets/js/code-copy.js' | relative_url }}" defer></script>
 
 <script>
-  // Theme Toggle Script
+  // Theme toggle
   const themeToggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-  const THEME_KEY = 'flutpulse-theme';
-
-  // Load saved theme preference or default to dark
-  function loadTheme() {
-    const savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
-    if (savedTheme === 'light') {
-      html.classList.add('light-mode');
-      themeToggle.textContent = '🌙';
-    } else {
-      html.classList.remove('light-mode');
-      themeToggle.textContent = '☀️';
-    }
+  const htmlElement = document.documentElement;
+  
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    htmlElement.classList.add('light-mode');
+    themeToggle.textContent = '☀️';
   }
-
-  // Toggle theme
+  
   themeToggle.addEventListener('click', () => {
-    const isLightMode = html.classList.toggle('light-mode');
-    const theme = isLightMode ? 'light' : 'dark';
-    localStorage.setItem(THEME_KEY, theme);
-    themeToggle.textContent = isLightMode ? '🌙' : '☀️';
+    htmlElement.classList.toggle('light-mode');
+    const isLight = htmlElement.classList.contains('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    themeToggle.textContent = isLight ? '☀️' : '🌙';
   });
-
-  // Load theme on page load
-  loadTheme();
 </script>
 
-{% if page.date %}
-<script>
-    window.articleTitle = "{{ page.title | escape }}";
-</script>
-{% endif %}
 </body>
 </html>
