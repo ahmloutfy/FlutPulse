@@ -6,113 +6,111 @@ permalink: /categories/
 
 <style>
   .custom-category-wrapper {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 0 16px;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
   }
-  .custom-category-title {
-    text-align: center;
-    color: #ffffff !important;
-    margin-bottom: 40px;
-    font-size: 32px;
-    font-weight: bold;
-    border: none !important;
-  }
+  .custom-category-intro { margin-bottom: 32px; }
   .custom-category-block {
-    background: #121821 !important;
-    padding: 25px;
-    border-radius: 8px !important;
-    border: 1px solid #1e2733 !important;
-    margin-bottom: 35px;
-    display: block !important;
+    margin-bottom: 22px;
+    padding: 24px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-sizing: border-box;
   }
   .custom-category-header {
-    color: #6cff6c !important;
-    margin: 0 0 20px 0 !important;
-    border-bottom: 1px solid #263345 !important;
-    padding-bottom: 12px !important;
-    font-size: 22px !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--accent-primary);
+    font-size: 1.3rem;
   }
   .custom-category-count {
-    color: #888888 !important;
-    font-size: 14px !important;
-    font-weight: normal !important;
-    background: #0b0f14 !important;
-    padding: 4px 12px !important;
-    border-radius: 6px !important;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--bg-primary);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
   }
   .custom-links-list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .custom-article-item {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 16px 20px !important;
-    background: #0b0f14 !important;
-    border: 1px solid #1e2733 !important;
-    border-radius: 6px !important;
-    text-decoration: none !important;
-    transition: all 0.2s ease !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    text-decoration: none;
+    transition: border-color 160ms ease, transform 160ms ease;
+    box-sizing: border-box;
   }
-  .custom-article-item:hover {
-    border-color: #6cff6c !important;
-    background: #161f2b !important;
+  .custom-article-item:hover,
+  .custom-article-item:focus-visible {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    outline: none;
   }
   .custom-item-title {
-    color: #ffffff !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    text-align: left !important;
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    font-weight: 700;
+    text-align: left;
   }
   .custom-item-date {
-    color: #a0a0a0 !important;
-    font-size: 13px !important;
-    font-family: monospace !important;
+    flex: 0 0 auto;
+    color: var(--text-muted);
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 600px) {
+    .custom-category-block { padding: 17px; }
+    .custom-article-item { align-items: flex-start; flex-direction: column; }
+    .custom-item-date { align-self: flex-end; }
   }
 </style>
 
 <div class="custom-category-wrapper">
-  <h1 class="custom-category-title">Articles by Category</h1>
+  <section class="page-intro custom-category-intro" aria-labelledby="categories-title">
+    <p class="page-intro-eyebrow">Find your next solution</p>
+    <h1 id="categories-title">Explore Flutter by Category</h1>
+    <p class="page-intro-description">Browse practical articles by topic and jump straight to the guidance you need.</p>
+  </section>
 
   {% for content_path in site.data.content_paths %}
     {% assign category_name = content_path.title %}
     {% assign path_posts = site.posts | where: "content_path", content_path.slug %}
-    
-    <div class="custom-category-block" id="{{ content_path.slug }}">
-      
-      <h2 class="custom-category-header">
-        <span>📁 {{ category_name }}</span>
+
+    <section class="custom-category-block" id="{{ content_path.slug }}" aria-labelledby="category-{{ content_path.slug }}">
+      <h2 class="custom-category-header" id="category-{{ content_path.slug }}">
+        <span>{{ category_name }}</span>
         <span class="custom-category-count">
           {{ path_posts.size }} {% if path_posts.size == 1 %}Article{% else %}Articles{% endif %}
         </span>
       </h2>
-      
+
       <div class="custom-links-list">
         {% for post in path_posts %}
           <a href="{{ post.url | relative_url }}" class="custom-article-item">
-            <span class="custom-item-title">📄 {{ post.title }}</span>
-            <span class="custom-item-date">
-              {{ post.date | date: "%b %d, %Y" }}
-              <span style="color: #6cff6c !important; margin-left: 8px;">→</span>
-            </span>
+            <span class="custom-item-title">{{ post.title }}</span>
+            <span class="custom-item-date">{{ post.date | date: "%b %d, %Y" }} <span aria-hidden="true">→</span></span>
           </a>
         {% endfor %}
       </div>
-
-    </div>
+    </section>
   {% endfor %}
 </div>

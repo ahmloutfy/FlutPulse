@@ -10,6 +10,16 @@
       return className.indexOf('language-') === 0;
     });
 
+    if (!languageClass) {
+      var code = block.querySelector('pre code');
+      if (code) {
+        languageClass = Array.prototype.find.call(code.classList, function (className) {
+          return className.indexOf('language-') === 0;
+        });
+        languageClass = languageClass || (code.getAttribute('data-lang') ? 'language-' + code.getAttribute('data-lang') : '');
+      }
+    }
+
     return languageClass
       ? languageClass.replace('language-', '').replace(/[-_]/g, ' ')
       : 'Code';
@@ -53,7 +63,7 @@
   }
 
   function initializeCodeCopy() {
-    document.querySelectorAll('.article-main-content div.highlighter-rouge').forEach(function (block) {
+    document.querySelectorAll('.article-main-content div.highlighter-rouge, .article-main-content figure.highlight').forEach(function (block) {
       if (block.dataset.copyReady === 'true') return;
 
       var code = block.querySelector('pre code');

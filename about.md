@@ -7,19 +7,17 @@ no_ads: true
 
 <div class="about-container" style="max-width: 800px; margin: 0 auto; padding: 40px 20px; font-family: 'Poppins', sans-serif; color: #ffffff;">
 
-    <div style="text-align: center; margin-bottom: 40px;">
-        <img src="{{ '/flutpulse_logo.png' | relative_url }}"
-             alt="FlutPulse Logo"
-             style="max-width: 150px; margin-bottom: 20px;">
-
-        <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 10px;">
-            Pulse of <span style="color: #FFDE59;">Flutter</span> Innovation
-        </h1>
-
-        <p style="font-size: 1.1rem; color: #a0aec0; max-width: 620px; margin: 0 auto; line-height: 1.7;">
-            In-depth Flutter articles, practical fixes, and ready-to-use code snippets to help you build polished applications faster.
+    <section class="page-intro" aria-labelledby="about-title">
+        <p class="page-intro-eyebrow">About FlutPulse</p>
+        <h1 id="about-title">The pulse of Flutter innovation</h1>
+        <p class="page-intro-description">
+            In-depth articles, practical fixes, and ready-to-use code snippets to help you build polished applications faster.
         </p>
-    </div>
+        <div class="page-intro-links">
+            <a href="{{ '/#latest-articles' | relative_url }}" class="btn btn-primary">Browse Articles</a>
+            <a href="{{ '/snippets/' | relative_url }}" class="btn btn-secondary">Explore Code Snippets</a>
+        </div>
+    </section>
 
     <hr style="border:0; height:1px; background:linear-gradient(to right, transparent, #7ED957, transparent); margin:40px 0;">
 

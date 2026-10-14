@@ -3,8 +3,11 @@ layout: default
 ---
 
 <div class="category-page-wrapper">
-  <!-- عرض اسم الفئة الحالية بشكل ديناميكي من خلال الإضافة -->
-  <h1 class="category-main-title" style="text-transform: capitalize;">📁 Category: {{ page.title }}</h1>
+  <section class="page-intro category-page-intro" aria-labelledby="category-page-title">
+    <p class="page-intro-eyebrow">Explore FlutPulse</p>
+    <h1 id="category-page-title">{{ page.title }}</h1>
+    <p class="page-intro-description">{{ page.posts.size }} practical Flutter articles and solutions, collected in one place.</p>
+  </section>
 
   <div class="category-block">
     <h2 class="category-header">

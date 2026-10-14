@@ -33,7 +33,27 @@ title: Home
 
 <div id="latest-articles" class="container" style="text-align: center;">
   <h2>Latest Articles</h2>
-  {% assign latest_posts = site.posts | slice: 0, 6 %}
+  {% assign featured_post = site.posts | first %}
+  {% if featured_post %}
+  <article class="featured-article">
+    {% if featured_post.image %}
+    <a class="featured-article-image" href="{{ featured_post.url | relative_url }}" aria-label="Read: {{ featured_post.title | escape }}">
+      <img src="{{ featured_post.image | relative_url }}" alt="" loading="lazy" decoding="async">
+    </a>
+    {% endif %}
+    <div class="featured-article-content">
+      <p class="featured-article-eyebrow">Latest article</p>
+      <p class="featured-article-meta">{{ featured_post.date | date: "%B %d, %Y" }}{% if featured_post.content_path %}{% for content_path in site.data.content_paths %}{% if content_path.slug == featured_post.content_path %} <span aria-hidden="true">·</span> {{ content_path.title }}{% endif %}{% endfor %}{% endif %}</p>
+      <h3><a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a></h3>
+      <p class="featured-article-excerpt">{{ featured_post.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
+      <a href="{{ featured_post.url | relative_url }}" class="btn btn-primary" data-track-cta="read_article" data-track-location="home_featured_article">Read the Latest Article</a>
+    </div>
+  </article>
+  {% endif %}
+
+  {% assign latest_posts = site.posts | shift | slice: 0, 5 %}
+  {% if latest_posts.size > 0 %}
+  <h3 class="latest-articles-subheading">More practical Flutter guides</h3>
   <div class="grid">
     {% for post in latest_posts %}
     <div class="card">
@@ -46,6 +66,7 @@ title: Home
     </div>
     {% endfor %}
   </div>
+  {% endif %}
   {% if site.posts.size > 6 %}
   <div style="margin-top: 25px;">
     <a href="{{ site.baseurl }}/categories/" class="btn btn-secondary" data-track-cta="view_all_articles" data-track-location="home_latest_articles">View All Articles ({{ site.posts.size }})</a>
@@ -62,6 +83,12 @@ title: Home
     </a>
     {% endfor %}
   </div>
+  <a href="{{ '/snippets/' | relative_url }}" class="snippet-promo" data-track-cta="browse_code_snippets" data-track-location="home_categories">
+    <span class="snippet-promo-label">Ready-to-use examples</span>
+    <span class="snippet-promo-title">Need a quick code starting point?</span>
+    <span class="snippet-promo-description">Browse practical Flutter snippets for layouts, async UI, and forms.</span>
+    <span class="snippet-promo-link">Explore Code Snippets <span aria-hidden="true">→</span></span>
+  </a>
 </div>
 
 <div class="container" style="text-align: center; margin-top: 40px;">

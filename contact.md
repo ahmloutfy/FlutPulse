@@ -11,17 +11,16 @@ no_ads: true
   {% if web3forms_key != "" %}
     {% assign form_ready = true %}
   {% endif %}
-  <div style="text-align: center; margin-bottom: 30px;">
-    <img src="{{ '/flutpulse_logo.png' | relative_url }}"
-         alt="FlutPulse Logo"
-         style="max-width: 140px; margin-bottom: 18px;">
-    <h1 style="font-size: 2.4rem; font-weight: 700; margin-bottom: 10px;">
-      Contact <span style="color: #FFDE59;">FlutPulse</span>
-    </h1>
-    <p style="font-size: 1.05rem; color: #a0aec0; max-width: 620px; margin: 0 auto; line-height: 1.7;">
-      Have a Flutter question, suggestion, or collaboration idea? Send a message and we'll get back to you by email.
+  <section class="page-intro" aria-labelledby="contact-title">
+    <p class="page-intro-eyebrow">Get in touch</p>
+    <h1 id="contact-title">Let's talk Flutter</h1>
+    <p class="page-intro-description">
+      Have a question, suggestion, or collaboration idea? Send a message and we'll get back to you by email.
     </p>
-  </div>
+    <div class="page-intro-links">
+      <a href="mailto:flutpulse@proton.me" class="btn btn-secondary">Email Us Directly</a>
+    </div>
+  </section>
 
   <div style="background: #121821; border: 1px solid #263345; border-radius: 12px; padding: 24px;">
     <form id="contact-form"
