@@ -87,8 +87,8 @@ permalink: /categories/
 <div class="custom-category-wrapper">
   <section class="page-intro custom-category-intro" aria-labelledby="categories-title">
     <p class="page-intro-eyebrow">Find your next solution</p>
-    <h1 id="categories-title">Explore Flutter by Category</h1>
-    <p class="page-intro-description">Browse practical articles by topic and jump straight to the guidance you need.</p>
+    <h1 id="categories-title">Explore Flutter Topics</h1>
+    <p class="page-intro-description">Browse practical Flutter engineering guides, including a dedicated collection on building with AI.</p>
   </section>
 
   {% for content_path in site.data.content_paths %}

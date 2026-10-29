@@ -6,7 +6,7 @@ title: Home
 <section class="hero">
   <div class="hero-text">
     <h1>Solve. Learn. <span>Build.</span></h1>
-    <p>Fix Flutter issues with clear, practical solutions.</p>
+    <p>Build better Flutter apps with practical engineering and thoughtful AI.</p>
     <a href="{{ '/#latest-articles' | relative_url }}" class="btn btn-primary" data-track-cta="browse_articles" data-track-location="home_hero">Browse Articles</a>
     <a href="{{ '/#categories-overview' | relative_url }}" class="btn btn-secondary" data-track-cta="explore_categories" data-track-location="home_hero">Explore Categories</a>
   </div>
@@ -75,7 +75,7 @@ title: Home
 </div>
 
 <div id="categories-overview" class="container" style="text-align: center;">
-  <h2>Categories</h2>
+  <h2>Explore Topics</h2>
   <div class="categories-container">
     {% for content_path in site.data.content_paths %}
     <a href="{{ site.baseurl }}/categories/#{{ content_path.slug }}" class="category-btn" data-track-cta="category_open" data-track-location="home_categories">
@@ -94,8 +94,7 @@ title: Home
 <div class="container" style="text-align: center; margin-top: 40px;">
   <h2>About FlutPulse</h2>
   <p style="max-width: 600px; margin: 0 auto; color: #aaa; line-height: 1.6;">
-    FlutPulse is a technical blog focused on solving real-world Flutter problems 
-    with clear, practical, and developer-friendly solutions.
+    FlutPulse shares practical Flutter engineering guides, including thoughtful ways to build AI features and use AI tools in real projects.
   </p>
   <div style="margin-top: 20px;">
     <a href="mailto:flutpulse@proton.me?subject=FlutPulse%20Newsletter%20Subscription" class="btn btn-primary" data-track-cta="newsletter_signup" data-track-location="home_about">Get Weekly Flutter Tips</a>
