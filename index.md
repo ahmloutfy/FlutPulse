@@ -11,7 +11,7 @@ title: Home
     <a href="{{ '/#categories-overview' | relative_url }}" class="btn btn-secondary" data-track-cta="explore_categories" data-track-location="home_hero">Explore Categories</a>
   </div>
   <div class="hero-logo">
-    <img src="flutpulse_logo.png" alt="FlutPulse" loading="eager" decoding="async">
+    <img src="{{ '/flutpulse_logo.png' | relative_url }}" alt="FlutPulse" loading="eager" decoding="async">
   </div>
 </section>
 
@@ -69,7 +69,7 @@ title: Home
   {% endif %}
   {% if site.posts.size > 6 %}
   <div style="margin-top: 25px;">
-    <a href="{{ site.baseurl }}/categories/" class="btn btn-secondary" data-track-cta="view_all_articles" data-track-location="home_latest_articles">View All Articles ({{ site.posts.size }})</a>
+    <a href="{{ '/categories/' | relative_url }}" class="btn btn-secondary" data-track-cta="view_all_articles" data-track-location="home_latest_articles">View All Articles ({{ site.posts.size }})</a>
   </div>
   {% endif %}
 </div>
@@ -78,7 +78,7 @@ title: Home
   <h2>Explore Topics</h2>
   <div class="categories-container">
     {% for content_path in site.data.content_paths %}
-    <a href="{{ site.baseurl }}/categories/#{{ content_path.slug }}" class="category-btn" data-track-cta="category_open" data-track-location="home_categories">
+    <a href="{{ '/categories/' | relative_url }}#{{ content_path.slug }}" class="category-btn" data-track-cta="category_open" data-track-location="home_categories">
       {{ content_path.title }}
     </a>
     {% endfor %}

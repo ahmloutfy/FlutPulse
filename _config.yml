@@ -1,5 +1,7 @@
 title: FlutPulse
 description: Fix Flutter issues with clear, practical solutions.
+url: https://ahmloutfy.github.io
+baseurl: /FlutPulse
 theme: jekyll-theme-primer
 permalink: /articles/:title.html
 remote_theme: null
