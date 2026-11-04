@@ -4,6 +4,7 @@ title: Home
 ---
 
 <section class="hero">
+
   <div class="hero-text">
     <h1>Solve. Learn. <span>Build.</span></h1>
     <p>Build better Flutter apps with practical engineering and thoughtful AI.</p>
