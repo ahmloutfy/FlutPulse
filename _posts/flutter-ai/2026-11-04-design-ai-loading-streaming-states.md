@@ -9,7 +9,6 @@ tags: [ai, streaming, loading, ux]
 content_path: flutter-ai
 ---
 
-
 <h1>{{ page.title }}</h1>
 <p class="article-date">Published on: {{ page.date | date: "%B %d, %Y" }}</p>
 
