@@ -1201,6 +1201,16 @@
     .footer-social svg { display: block; width: 23px; height: 23px; fill: currentColor; }
     .footer-social:hover, .footer-social:focus-visible { transform: translateY(-3px); background: var(--accent-primary); color: #fff; }
     .footer-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 0; }
+    .article-engagement { margin: 30px 0 0; padding: 22px; border: 1px solid var(--border-light); border-radius: 12px; background: var(--card-bg); }
+    .article-engagement h2 { margin: 0 0 8px; color: var(--text-primary); font-size: 20px; }
+    .article-engagement p { margin: 0 0 14px; color: var(--text-muted); }
+    .article-engagement-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .article-engagement button { min-height: 42px; padding: 9px 15px; border: 1px solid var(--border-light); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); font: inherit; font-weight: 700; cursor: pointer; }
+    .article-engagement button:hover:not(:disabled) { border-color: var(--accent-primary); color: var(--accent-primary); }
+    .article-engagement button:focus-visible { outline: 2px solid var(--accent-secondary); outline-offset: 2px; }
+    .article-engagement button:disabled { cursor: default; opacity: 0.75; }
+    .article-engagement-status { min-height: 1.5em; margin: 12px 0 0 !important; color: var(--accent-primary) !important; }
+    @media (max-width: 480px) { .article-engagement { padding: 18px; } .article-engagement-actions button { flex: 1 1 135px; } }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -1340,6 +1350,26 @@
     </div>
 
     {% if page.date %}
+    <section class="article-engagement" aria-labelledby="article-engagement-title" data-article-engagement>
+      <div class="article-share">
+        <h2 id="article-engagement-title">Share this article</h2>
+        <p>Know someone who might find it useful?</p>
+        <div class="article-engagement-actions">
+          <button type="button" data-share-article>Share article</button>
+          <button type="button" data-copy-article-link>Copy link</button>
+        </div>
+      </div>
+      <div class="article-feedback" style="margin-top: 22px;">
+        <h2>Was this article helpful?</h2>
+        <p>Your feedback helps us improve future guides.</p>
+        <div class="article-engagement-actions" role="group" aria-label="Rate this article">
+          <button type="button" data-article-rating="yes">Yes, it helped</button>
+          <button type="button" data-article-rating="no">Not yet</button>
+        </div>
+        <p class="article-engagement-status" data-engagement-status role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
     {% assign current_content_path = page.content_path %}
     <section style="margin: 30px 0 0 0; border-top: 1px solid var(--border-light); padding-top: 20px; max-width: 100%; box-sizing: border-box; overflow: hidden;">
       <h2 style="margin: 0 0 15px 0; font-size: 22px;">Related Articles</h2>

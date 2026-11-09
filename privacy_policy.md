@@ -34,8 +34,8 @@ no_ads: true
             <p>We may collect the following types of information:</p>
             <ul style="padding-left: 25px; line-height: 1.8;">
                 <li><strong>Personal Data:</strong> Name and email address when you contact us.</li>
-                <li><strong>Usage Data:</strong> IP address, browser type, device information, and pages visited.</li>
-                <li><strong>Cookies:</strong> Small data files used to enhance your experience and analyze traffic.</li>
+                <li><strong>Usage Data:</strong> IP address, browser type, device information, pages visited, and article interaction events such as helpfulness ratings and sharing actions.</li>
+                <li><strong>Cookies and Local Storage:</strong> Small data stored by your browser to enhance your experience, analyze traffic, and remember whether you have rated an article.</li>
             </ul>
         </section>
 
@@ -47,6 +47,7 @@ no_ads: true
                 <li>Respond to your inquiries and provide support</li>
                 <li>Use contact form submissions only to reply to your message and follow up on your request</li>
                 <li>Understand how users interact with our content</li>
+                <li>Use article ratings to improve our guides</li>
                 <li>Comply with legal obligations</li>
             </ul>
         </section>
