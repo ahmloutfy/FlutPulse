@@ -20,10 +20,19 @@ snippet_tabs: true
 </section>
 
 <div class="snippet-tabs" markdown="1">
+  <label class="snippet-search-label" for="snippetSearch">Find a snippet</label>
+  <input id="snippetSearch" class="snippet-search" type="search" placeholder="Search snippets by name or code…" autocomplete="off">
   <div class="snippet-tablist" role="tablist" aria-label="Code snippet categories">
     <button id="tab-layout" class="snippet-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-layout" tabindex="0">Layout</button>
     <button id="tab-async" class="snippet-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-async" tabindex="-1">Async UI</button>
     <button id="tab-forms" class="snippet-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-forms" tabindex="-1">Forms</button>
+    <button id="tab-ai" class="snippet-tab snippet-tab-ai" type="button" role="tab" aria-selected="false" aria-controls="panel-ai" tabindex="-1">AI <span class="snippet-featured-badge">✦ Featured</span></button>
+  </div>
+  <div class="snippet-navigation" aria-label="Snippet navigation">
+    <button class="snippet-previous" type="button">← Previous</button>
+    <span class="snippet-counter" aria-live="polite"></span>
+    <span class="snippet-dots" aria-hidden="true"></span>
+    <button class="snippet-next" type="button">Next →</button>
   </div>
 
 <section id="panel-layout" class="snippet-panel" role="tabpanel" aria-labelledby="tab-layout" tabindex="0" markdown="1">
@@ -179,6 +188,54 @@ DropdownButtonFormField<String>(
     setState(() => selectedCategory = value);
   },
 )
+```
+</section>
+<section id="panel-ai" class="snippet-panel" role="tabpanel" aria-labelledby="tab-ai" tabindex="0" markdown="1">
+<h2 data-snippet-filter="chat">Send a chat request with Gemini</h2>
+<p data-snippet-filter="chat">Keep the API key on a trusted server in production; this client example assumes a configured service.</p>
+
+```dart
+final response = await GeminiService.instance.generateContent(
+  'Suggest three names for a plant care app.',
+);
+
+final answer = response.text ?? 'No response received';
+```
+
+<hr class="snippet-divider">
+
+<h3 data-snippet-filter="structured">Parse structured AI output safely</h3>
+<p data-snippet-filter="structured">Ask for JSON, then validate fields before using model generated values.</p>
+
+```dart
+final decoded = jsonDecode(response.text!) as Map<String, dynamic>;
+final title = decoded['title'];
+final score = decoded['score'];
+
+if (title is String && score is num) {
+  showSuggestion(title, score.toDouble());
+}
+```
+
+<hr class="snippet-divider">
+
+<h3 data-snippet-filter="chat">Add a retry limit to AI requests</h3>
+<p data-snippet-filter="chat">Retry transient failures with a short delay and stop after a fixed number of attempts.</p>
+
+```dart
+Future<T> retryAiRequest<T>(Future<T> Function() request) async {
+  const maxAttempts = 3;
+  for (var attempt = 0; ; attempt++) {
+    try {
+      return await request();
+    } catch (_) {
+      if (attempt + 1 >= maxAttempts) rethrow;
+      await Future<void>.delayed(
+        Duration(milliseconds: 300 * (attempt + 1)),
+      );
+    }
+  }
+}
 ```
 </section>
 </div>

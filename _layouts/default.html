@@ -803,6 +803,8 @@
       background: rgba(108, 255, 108, 0.1);
       color: var(--accent-primary);
     }
+    .snippet-tab-ai { display:flex; align-items:center; justify-content:center; gap:8px; }
+    .snippet-featured-badge { padding:3px 7px; border-radius:999px; background:linear-gradient(120deg, rgba(108,255,108,.2), rgba(102,204,255,.2)); color:var(--accent-primary); font-size:.68rem; line-height:1.2; text-transform:uppercase; letter-spacing:.04em; }
     .snippet-panel h2,
     .snippet-panel h3 {
       color: var(--accent-secondary);
@@ -825,8 +827,29 @@
       opacity: 0.8;
     }
     .snippet-tabs.is-ready .snippet-panel:not(.is-active) { display: none; }
+    .snippet-tabs.is-ready .snippet-panel[hidden],
+    .snippet-tabs.is-ready .snippet-panel > [hidden] { display: none !important; }
+    .snippet-search-label { display:block; margin:16px 0 6px; font-weight:700; }
+    .snippet-search { width:100%; box-sizing:border-box; padding:12px 16px; border:1px solid var(--border-light); border-radius:10px; background:var(--bg-secondary); color:var(--text-primary); font:inherit; }
+    .snippet-navigation { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:18px 0 30px; flex-wrap:wrap; }
+    .snippet-navigation button { padding:9px 14px; border:1px solid var(--border-light); border-radius:8px; background:var(--card-bg); color:var(--text-primary); cursor:pointer; }
+    .snippet-navigation button:disabled { opacity:.45; cursor:default; }
+    .snippet-counter { font-weight:700; color:var(--text-secondary); }
+    .snippet-dots { color:var(--accent-primary); letter-spacing:3px; }
+    .snippet-tabs.is-ready .snippet-panel.is-entering-next { animation: snippet-enter-next 260ms ease both; }
+    .snippet-tabs.is-ready .snippet-panel.is-entering-previous { animation: snippet-enter-previous 260ms ease both; }
+    @keyframes snippet-enter-next {
+      from { opacity: 0; transform: translateX(14px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes snippet-enter-previous {
+      from { opacity: 0; transform: translateX(-14px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
     @media (prefers-reduced-motion: reduce) {
       .snippet-tab { transition: none; }
+      .snippet-tabs.is-ready .snippet-panel.is-entering-next,
+      .snippet-tabs.is-ready .snippet-panel.is-entering-previous { animation: none; }
     }
 
     .article-main-content table {
@@ -1292,7 +1315,7 @@
   </div>
   <div class="search-container">
     <form class="search-form" action="{{ '/search/' | relative_url }}" method="get" role="search">
-      <input type="search" name="q" placeholder="Search articles..." aria-label="Search articles" autocomplete="off" />
+      <input type="search" name="q" placeholder="Search the whole site..." aria-label="Search the whole site" autocomplete="off" />
       <button type="submit" aria-label="Search">🔍</button>
     </form>
   </div>

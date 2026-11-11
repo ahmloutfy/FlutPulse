@@ -2,7 +2,7 @@ name: Scheduled Publish
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # يعمل كل يوم عند منتصف الليل UTC
+    - cron: '15 7 * * *'  # 10:15 صباحًا بتوقيت القاهرة، بعد موعد نشر المقالات
   workflow_dispatch:      # تشغيل يدوي عند الحاجة
 
 jobs:
