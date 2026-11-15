@@ -83,6 +83,7 @@ LayoutBuilder(
   },
 )
 ```
+<p class="snippet-related-article"><a href="{{ '/articles/building-responsive-layouts-flutter.html' | relative_url }}">Read the guide: Building Responsive Layouts That Actually Work on All Screen Sizes</a></p>
 </section>
 
 <section id="panel-async" class="snippet-panel" role="tabpanel" aria-labelledby="tab-async" tabindex="0" markdown="1">
@@ -136,6 +137,7 @@ StreamBuilder<List<Message>>(
   },
 )
 ```
+<p class="snippet-related-article"><a href="{{ '/articles/debounce-flutter-search.html' | relative_url }}">Read the guide: Build a Flutter Search Box That Stays Responsive</a></p>
 </section>
 
 <section id="panel-forms" class="snippet-panel" role="tabpanel" aria-labelledby="tab-forms" tabindex="0" markdown="1">
@@ -189,6 +191,7 @@ DropdownButtonFormField<String>(
   },
 )
 ```
+<p class="snippet-related-article"><a href="{{ '/articles/helpful-flutter-form-validation.html' | relative_url }}">Read the guide: Flutter Form Validation That Feels Helpful, Not Hostile</a></p>
 </section>
 <section id="panel-ai" class="snippet-panel" role="tabpanel" aria-labelledby="tab-ai" tabindex="0" markdown="1">
 <h2 data-snippet-filter="chat">Send a chat request with Gemini</h2>
@@ -237,5 +240,6 @@ Future<T> retryAiRequest<T>(Future<T> Function() request) async {
   }
 }
 ```
+<p class="snippet-related-article"><a href="{{ '/articles/build-ai-chat-ui-flutter.html' | relative_url }}">Read the guide: Build an AI Chat Interface in Flutter Without Overengineering</a> · <a href="{{ '/articles/validate-ai-output-flutter.html' | relative_url }}">Validate AI output in Flutter</a></p>
 </section>
 </div>

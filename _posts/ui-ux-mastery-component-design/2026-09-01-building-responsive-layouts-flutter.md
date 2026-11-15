@@ -7,6 +7,7 @@ image: "/images/articles/ui-ux-mastery-component-design/responsive-layouts-flutt
 categories: [ui-ux]
 content_path: ui-ux-mastery-component-design
 tags: [responsive, layout, design]
+related_snippet: layout
 ---
 
 <h1>{{ page.title }}</h1>

@@ -6,6 +6,7 @@ excerpt: "Build Flutter form validation that gives users useful feedback at the 
 image: "/images/articles/ui-ux-mastery-component-design/helpful-flutter-form-validation.png"
 categories: [ui-ux]
 tags: [forms, validation, ux, components]
+related_snippet: forms
 content_path: ui-ux-mastery-component-design
 ---
 

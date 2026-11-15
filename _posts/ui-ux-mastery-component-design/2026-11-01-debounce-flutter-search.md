@@ -6,6 +6,7 @@ excerpt: "Debounce remote search without stale results, stuck loading indicators
 image: "/images/articles/ui-ux-mastery-component-design/debounce-flutter-search.png"
 categories: [ui-ux, networking]
 tags: [search, async, debounce, performance]
+related_snippet: async
 ---
 <h1>{{ page.title }}</h1>
 <p class="article-date">Published on: {{ page.date | date: "%B %d, %Y" }}</p>

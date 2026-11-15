@@ -6,6 +6,7 @@ excerpt: "Start an AI chat screen with a focused message model, clear request st
 image: "/images/articles/flutter-ai/build-ai-chat-ui-flutter.png"
 categories: [ui-ux, ai]
 tags: [ai, chat, flutter, components]
+related_snippet: ai
 content_path: flutter-ai
 ---
 

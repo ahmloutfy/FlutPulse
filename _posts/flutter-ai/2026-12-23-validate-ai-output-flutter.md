@@ -7,6 +7,7 @@ image: "/images/articles/flutter-ai/validate-ai-output-flutter.png"
 categories: [architecture, ai]
 tags: [ai, validation, parsing, reliability]
 content_path: flutter-ai
+related_snippet: ai
 ---
 
 <h1>{{ page.title }}</h1>
