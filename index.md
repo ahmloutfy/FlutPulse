@@ -16,6 +16,7 @@ title: Home
   </div>
 </section>
 
+
 {% comment %} Ad block hidden while preserving its original code.
 <div style="text-align: center; margin: 30px auto; max-width: 100%; padding: 0 15px; box-sizing: border-box;">
   <div style="background: #121821; padding: 15px; border-radius: 8px; border: 1px dashed #263345; display: inline-block; width: 100%; max-width: 760px; box-sizing: border-box; position: relative; overflow: hidden;">
