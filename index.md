@@ -16,6 +16,17 @@ title: Home
   </div>
 </section>
 
+<section id="my-apps" class="container" style="text-align: center;">
+  <h2>My Apps</h2>
+  <p>Explore Flutter apps built to bring ideas to life.</p>
+  <article class="card" style="max-width: 520px; margin: 24px auto;">
+    <img src="{{ '/images/inline_preview.png' | relative_url }}" alt="Preview of the FlutFest app" class="card-img" loading="lazy" decoding="async">
+    <h3>FlutFest</h3>
+    <p>A Flutter app demo. Open the live demo and take a look.</p>
+    <a href="https://ahmloutfy.github.io/FlutFestDemo/" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-track-cta="open_app" data-track-location="home_apps">Open FlutFest</a>
+  </article>
+</section>
+
 
 {% comment %} Ad block hidden while preserving its original code.
 <div style="text-align: center; margin: 30px auto; max-width: 100%; padding: 0 15px; box-sizing: border-box;">
